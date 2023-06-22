@@ -1,10 +1,15 @@
 <template lang="pug">
-span Home page
+.main
+  .container
+    Wizard
 </template>
 
 <script>
-import Vue from 'vue'
+import Vue from 'vue';
+
+import Wizard from '@/components/wizard/vue/Wizard.vue';
 
 export default Vue.extend({
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: { Wizard }
 })

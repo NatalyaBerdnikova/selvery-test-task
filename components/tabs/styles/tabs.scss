@@ -1,0 +1,25 @@
+@import '~assets/styles/colors.scss';
+
+.tabs {
+  display: flex;
+  padding: 0 20px;
+  border-bottom: 1px solid $c-light-gray;
+
+  &__item {
+    &:not(:last-of-type) {
+      margin-right: 1rem;
+    }
+  }
+
+  &__button {
+    color: $c-gray;
+    border-bottom: 2px solid transparent;
+    user-select: none;
+    transition: border-color 0.15s ease-out, color 0.15s ease-out;
+
+    &._active {
+      color: $c-black;
+      border-color: $c-accent;
+    }
+  }
+}
