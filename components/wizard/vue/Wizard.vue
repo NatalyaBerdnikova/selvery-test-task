@@ -1,21 +1,25 @@
 <template lang="pug">
 .wizard
   Tabs(:activeIndex="activeTabIndex" @change="onChangeActiveIndex")
-  component(:is="activeWizardStep")
+  .wizard__content
+    component(:is="activeWizardStep")
   .wizard__buttons
     CustomButton(class="wizard__button") Сохранить
     CustomButton(class="wizard__button" isSecondary) Очистить
 </template>
 
 <script>
-import Tabs from '@/components/tabs/vue/Tabs.vue';
-import CustomButton from '@/components/custom-button/vue/CustomButton.vue';
+import Tabs from '@/components/common/tabs/vue/Tabs.vue';
+import CustomButton from '@/components/common/custom-button/vue/CustomButton.vue';
+import InputValues from '@/components/wizard/blocks/input-values/vue/InputValues.vue';
+import ComputedValues from '@/components/wizard/blocks/computed-values/vue/ComputedValues.vue';
+import CheckCalculations from '@/components/wizard/blocks/check-calculations/vue/CheckCalculations.vue';
 
-const STEPS = [];
+const STEPS = [InputValues, ComputedValues, CheckCalculations];
 
 export default {
   name: "Wizard",
-  components: { Tabs, CustomButton },
+  components: { Tabs, CustomButton, InputValues },
   data() {
     return {
       activeTabIndex: 0
@@ -31,7 +35,6 @@ export default {
   methods: {
     onChangeActiveIndex(newIndex) {
       this.activeTabIndex = newIndex;
-      console.info('onChangeActiveIndex', newIndex);
     }
   }
 }

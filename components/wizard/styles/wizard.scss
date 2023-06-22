@@ -1,7 +1,11 @@
 .wizard {
   display: flex;
   flex-direction: column;
-  min-height: 715px;
+  min-height: 710px;
+
+  &__content {
+    padding: 20px 30px 0;
+  }
 
   &__buttons {
     display: flex;
