@@ -1,0 +1,17 @@
+@import '~assets/styles/colors.scss';
+
+.custom-button {
+  padding: 13px 28px;
+  background-color: $c-accent;
+  border-radius: 10px;
+  color: $c-white;
+  font-size: 18px;
+  font-weight: 600;
+  user-select: none;
+
+  &._secondary {
+    background-color: transparent;
+    border: 1px solid $c-gray;
+    color: $c-dark-gray;
+  }
+}

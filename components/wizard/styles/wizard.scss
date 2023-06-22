@@ -1,0 +1,18 @@
+.wizard {
+  display: flex;
+  flex-direction: column;
+  min-height: 715px;
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: auto;
+    padding-bottom: 15px;
+  }
+
+  &__button {
+    &:not(:last-of-type) {
+      margin-right: 25px;
+    }
+  }
+}

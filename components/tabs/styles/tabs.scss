@@ -2,19 +2,21 @@
 
 .tabs {
   display: flex;
-  padding: 0 20px;
+  padding: 0 25px;
   border-bottom: 1px solid $c-light-gray;
 
   &__item {
     &:not(:last-of-type) {
-      margin-right: 1rem;
+      margin-right: 2.5rem;
     }
   }
 
   &__button {
+    font-size: 1.15rem;
     color: $c-gray;
     border-bottom: 2px solid transparent;
     user-select: none;
+    padding: 0.4rem 0;
     transition: border-color 0.15s ease-out, color 0.15s ease-out;
 
     &._active {
