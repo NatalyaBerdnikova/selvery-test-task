@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import Tabs from '@/components/common/tabs/vue/Tabs.vue';
+import Tabs from '@/components/controls/tabs/vue/Tabs.vue';
 import CustomButton from '@/components/common/custom-button/vue/CustomButton.vue';
 import InputValues from '@/components/wizard/blocks/input-values/vue/InputValues.vue';
 import ComputedValues from '@/components/wizard/blocks/computed-values/vue/ComputedValues.vue';
