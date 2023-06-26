@@ -31,14 +31,13 @@ const BOOLEAN_SELECT_DATA = {
 
 const DEFAULT_SELECT_DATA = {
   options: [
-    { value: "text", text: "Строка" },
     { value: "number", text: "Число" },
     { value: "boolean", text: "Логическое значение" },
   ]
 };
 
 export default {
-  name: "CustomTableLine",
+  name: "InputValuesLine",
   components: { CustomInput, CustomSelect, DeleteIcon },
   inject: ['tableEditable'],
   props: {

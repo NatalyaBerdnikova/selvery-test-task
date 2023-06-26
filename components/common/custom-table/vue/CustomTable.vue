@@ -16,7 +16,7 @@ table.custom-table
 </template>
 
 <script>
-import CustomTableLine from '@/components/common/custom-table-line/vue/CustomTableLine.vue';
+import CustomTableLine from '@/components/common/table-line/input-values-line/vue/InputValuesLine.vue';
 
 export default {
   name: 'CustomTable',
