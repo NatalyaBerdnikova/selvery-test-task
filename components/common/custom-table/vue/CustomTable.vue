@@ -2,7 +2,11 @@
 table.custom-table
   thead
     tr
-      th.custom-table__cell._heading(v-for="cell in headCells" :key="cell.id") {{ cell.text }}
+      th.custom-table__cell._heading(
+        :class="{ '_without-border': rows.length <= 0 }"
+        v-for="cell in headCells"
+        :key="cell.id"
+      ) {{ cell.text }}
   tbody
     CustomTableLine(
       v-for="row in rows"
