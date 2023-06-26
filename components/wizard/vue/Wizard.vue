@@ -1,11 +1,11 @@
 <template lang="pug">
 .wizard
-  Tabs(:activeIndex="activeTabIndex" @change="onChangeActiveIndex")
+  Tabs(:activeIndex="activeTabIndex" @change="changeActiveIndex")
   .wizard__content
     component(:is="activeWizardStep")
   .wizard__buttons
-    CustomButton(class="wizard__button") Сохранить
-    CustomButton(class="wizard__button" isSecondary) Очистить
+    CustomButton(class="wizard__button" @click.native="save") Сохранить
+    CustomButton(class="wizard__button" isSecondary @click.native="reset") Очистить
 </template>
 
 <script>
@@ -33,10 +33,16 @@ export default {
   },
 
   methods: {
-    onChangeActiveIndex(newIndex) {
+    changeActiveIndex(newIndex) {
       this.activeTabIndex = newIndex;
-    }
-  }
+    },
+    save() {
+      this.$store.dispatch('input-values/saveToStorage');
+    },
+    reset() {
+      this.$store.dispatch('input-values/resetSavedData');
+    },
+  },
 }
 </script>
 

@@ -1,0 +1,45 @@
+@import "~assets/styles/colors.scss";
+
+.custom-table {
+  border-collapse: collapse;
+  background-color: $c-white;
+  border-radius: 15px;
+
+  &__row {
+    &:not(:last-of-type) {
+      border-bottom: 1px solid $c-light-gray;
+    }
+  }
+
+  &__cell {
+    text-align: left;
+    height: 53px;
+
+    &._heading {
+      color: $c-gray;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 11px 19px;
+      min-width: 247px;
+      height: 45px;
+      border-bottom: 1px solid $c-light-gray;
+
+      &:empty {
+        min-width: 55px;
+      }
+    }
+  }
+
+  &__delete-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.15s ease-out;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+}
