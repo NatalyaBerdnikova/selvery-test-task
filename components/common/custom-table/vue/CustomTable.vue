@@ -8,7 +8,8 @@ table.custom-table
         :key="cell.id"
       ) {{ cell.text }}
   tbody
-    CustomTableLine(
+    component(
+      :is="rowComponent"
       v-for="row in rows"
       :key="row.id"
       v-bind="row"
@@ -16,11 +17,12 @@ table.custom-table
 </template>
 
 <script>
-import CustomTableLine from '@/components/common/table-line/input-values-line/vue/InputValuesLine.vue';
+import InputValuesLine from '@/components/common/table-line/input-values-line/vue/InputValuesLine.vue';
+import ComputedValuesLine from '@/components/common/table-line/computed-values-line/vue/ComputedValuesLine.vue';
 
 export default {
   name: 'CustomTable',
-  components: { CustomTableLine },
+  components: { InputValuesLine, ComputedValuesLine },
   props: {
     headCells: {
       type: Array,
@@ -30,7 +32,23 @@ export default {
       type: Array,
       required: true
     },
+    rowType: {
+      type: String,
+      default: 'input'
+    }
   },
+  computed: {
+    rowComponent() {
+      switch(this.rowType) {
+        case 'input':
+          return InputValuesLine
+        case 'computed':
+          return ComputedValuesLine
+        default:
+          return InputValuesLine
+      }
+    }
+  }
 }
 </script>
 

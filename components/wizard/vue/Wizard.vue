@@ -38,9 +38,11 @@ export default {
     },
     save() {
       this.$store.dispatch('input-values/saveToStorage');
+      this.$store.dispatch('computed-values/saveToStorage');
     },
     reset() {
       this.$store.dispatch('input-values/resetSavedData');
+      this.$store.dispatch('computed-values/resetSavedData');
     },
   },
 }

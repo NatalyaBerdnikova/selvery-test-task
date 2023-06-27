@@ -1,5 +1,5 @@
 <template lang="pug">
-input.custom-input(:value="value" @input="$emit('input', $event.target.value)")
+input.custom-input(:value="value" @input="$emit('input', $event.target.value)" :type="type")
 </template>
 
 <script>
@@ -9,6 +9,10 @@ export default {
     value: {
       type: [String, Number],
       default: "",
+    },
+    type: {
+      type: String,
+      default: "text",
     }
   },
   emits: ["input"],

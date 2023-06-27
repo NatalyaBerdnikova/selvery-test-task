@@ -1,7 +1,7 @@
 <template lang="pug">
 .input-values
   .title Вводимые значения
-  CustomTable.input-values__table(:headCells="headcells" :rows="getVariables")
+  CustomTable.input-values__table(:headCells="headcells" :rows="getVariables" rowType="input")
   CustomButton(@click.native="addVariable") Добавить переменную
 </template>
 
