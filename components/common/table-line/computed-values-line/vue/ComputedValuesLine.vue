@@ -71,10 +71,10 @@ export default {
       this.changeVariable({ id: this.id, name: this.localName });
     },
     onChangeType() {
-      this.changeVariable({ id: this.id, type: this.localType, initialValue: this.localInitialValue });
+      this.changeVariable({ id: this.id, type: this.localType });
     },
     onChangeFormula() {
-      this.changeVariable({ id: this.id, name: this.localFormula });
+      this.changeVariable({ id: this.id, formula: this.localFormula });
     },
     ...mapMutations('computed-values', ['removeVariable', 'changeVariable'])
   }
