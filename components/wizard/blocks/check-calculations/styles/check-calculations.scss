@@ -1,0 +1,41 @@
+@import '~assets/styles/colors.scss';
+
+.check-calculations {
+  &__container {
+    display: flex;
+  }
+
+  &__subtitle {
+    margin: 0 0 10px;
+  }
+
+  &__inputs {
+    min-width: 250px;
+  }
+
+  &__input-wrapper {
+    &:not(:last-of-type) {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__input-title {
+    font-size: 0.8rem;
+    color: $c-gray;
+    margin: 0 0 10px;
+  }
+
+  &__computed {
+    min-width: 50%;
+    margin-left: auto;
+  }
+
+  &__table {
+    border-collapse: collapse;
+  }
+
+  &__table-cell {
+    border: 1px solid $c-black;
+    padding: 10px;
+  }
+}

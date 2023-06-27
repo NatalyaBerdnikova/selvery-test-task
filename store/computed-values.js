@@ -1,3 +1,4 @@
+export const MODULE_NAME = 'computed-values';
 const STORAGE_KEY = 'computed_values';
 const DEFAULT_VARIABLE_OBJECT = { name: '', type: null, formula: '' };
 
@@ -13,8 +14,9 @@ export const getters = {
 }
 
 export const mutations = {
-  setVariables(state, variables) {
-    state.variables = variables;
+  setState(state, newState) {
+    state.variables = newState.variables;
+    state.lastAddedIndex = newState.lastAddedIndex;
   },
   addVariable(state) {
     state.lastAddedIndex += 1;
@@ -31,17 +33,17 @@ export const mutations = {
 
 export const actions = {
   setFromStorage({ commit }) {
-    const variables = localStorage.getItem(STORAGE_KEY);
-    if (!variables) {
+    const state = localStorage.getItem(STORAGE_KEY);
+    if (!state) {
       return;
     }
-    commit('setVariables', JSON.parse(variables));
+    commit('setState', JSON.parse(state));
   },
   saveToStorage({ state }) {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state.variables));
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   },
   resetSavedData({ commit }) {
-    commit('setVariables', []);
+    commit('setState', { lastAddedIndex: 0, variables: [] });
     localStorage.removeItem(STORAGE_KEY);
   }
 }

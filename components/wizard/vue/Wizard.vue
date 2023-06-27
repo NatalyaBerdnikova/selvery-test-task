@@ -2,7 +2,8 @@
 .wizard
   Tabs(:activeIndex="activeTabIndex" @change="changeActiveIndex")
   .wizard__content
-    component(:is="activeWizardStep")
+    keep-alive
+      component(:is="activeWizardStep")
   .wizard__buttons
     CustomButton(class="wizard__button" @click.native="save") Сохранить
     CustomButton(class="wizard__button" isSecondary @click.native="reset") Очистить
@@ -30,6 +31,11 @@ export default {
     activeWizardStep() {
       return STEPS[this.activeTabIndex];
     }
+  },
+
+  mounted() {
+    this.$store.dispatch('input-values/setFromStorage');
+    this.$store.dispatch('computed-values/setFromStorage');
   },
 
   methods: {

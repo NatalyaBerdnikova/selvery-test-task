@@ -9,6 +9,7 @@
 import { mapGetters, mapMutations } from 'vuex';
 import CustomTable from '@/components/common/custom-table/vue/CustomTable.vue';
 import CustomButton from '@/components/common/custom-button/vue/CustomButton.vue';
+import { MODULE_NAME } from '~/store/computed-values';
 
 const HEADCELLS = [
   { id: 0, text: "Переменная" },
@@ -27,13 +28,13 @@ export default {
     headcells() {
       return HEADCELLS;
     },
-    ...mapGetters('computed-values', ['getVariables']),
+    ...mapGetters(MODULE_NAME, ['getVariables']),
   },
   mounted() {
     this.$store.dispatch('computed-values/setFromStorage');
   },
   methods: {
-    ...mapMutations('computed-values', ['addVariable', 'changeVariable'])
+    ...mapMutations(MODULE_NAME, ['addVariable', 'changeVariable'])
   }
 }
 </script>

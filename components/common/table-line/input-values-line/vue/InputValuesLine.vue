@@ -21,20 +21,8 @@ import { mapMutations } from 'vuex';
 import CustomInput from '@/components/controls/custom-input/vue/CustomInput.vue';
 import CustomSelect from '@/components/controls/custom-select/vue/CustomSelect.vue';
 import DeleteIcon from '@/components/common/icons/Delete.vue';
-
-const BOOLEAN_SELECT_DATA = {
-  options: [
-    { value: true, text: 'Да' },
-    { value: false, text: 'Нет' },
-  ]
-};
-
-const DEFAULT_SELECT_DATA = {
-  options: [
-    { value: "number", text: "Число" },
-    { value: "boolean", text: "Логическое значение" },
-  ]
-};
+import { MODULE_NAME } from '~/store/input-values';
+import { DEFAULT_SELECT_DATA, BOOLEAN_SELECT_DATA } from '~/constants';
 
 export default {
   name: "InputValuesLine",
@@ -73,7 +61,7 @@ export default {
       if (this.localType === 'boolean') {
         return { component: 'CustomSelect', data: BOOLEAN_SELECT_DATA }
       }
-      return { component: 'CustomInput', data: { type: this.localType } }
+      return { component: 'CustomInput', data: { type: 'number' } }
     },
   },
   mounted() {
@@ -95,7 +83,7 @@ export default {
     onChangeInitialValue() {
       this.changeVariable({ id: this.id, initialValue: this.localInitialValue })
     },
-    ...mapMutations('input-values', ['removeVariable', 'changeVariable'])
+    ...mapMutations(MODULE_NAME, ['removeVariable', 'changeVariable'])
   }
 }
 </script>

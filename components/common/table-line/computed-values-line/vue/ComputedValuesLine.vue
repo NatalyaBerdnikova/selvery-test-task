@@ -16,6 +16,7 @@ import { mapMutations } from 'vuex';
 import CustomInput from '@/components/controls/custom-input/vue/CustomInput.vue';
 import CustomSelect from '@/components/controls/custom-select/vue/CustomSelect.vue';
 import DeleteIcon from '@/components/common/icons/Delete.vue';
+import { MODULE_NAME } from '~/store/computed-values';
 
 const DEFAULT_SELECT_DATA = {
   options: [
@@ -76,7 +77,7 @@ export default {
     onChangeFormula() {
       this.changeVariable({ id: this.id, formula: this.localFormula });
     },
-    ...mapMutations('computed-values', ['removeVariable', 'changeVariable'])
+    ...mapMutations(MODULE_NAME, ['removeVariable', 'changeVariable'])
   }
 }
 </script>
