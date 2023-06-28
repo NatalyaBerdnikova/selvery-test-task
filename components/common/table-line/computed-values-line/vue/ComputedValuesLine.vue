@@ -5,7 +5,7 @@ tr.custom-table__row
   td.custom-table__cell
     CustomSelect(v-model="localType" v-bind="defaultSelectData" @input="onChangeType")
   td.custom-table__cell
-    CustomInput(v-model="localFormula" @input="onChangeFormula")
+    CustomInput(v-model="localFormula" @input="onChangeFormula" title="Отделяйте переменные пробелами")
   td.custom-table__cell(v-if="tableEditable")
     button.custom-table__delete-button(@click="remove")
       DeleteIcon
